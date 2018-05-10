@@ -1,0 +1,85 @@
+<!-- Begin Wrapper -->
+<div id="wrapper">
+    <div class="wrapper-top"></div>
+    <div class="wrapper-mid">
+        <!-- Begin Paper -->
+        <div id="paper">
+        <div class="paper-top"></div>
+        <div id="paper-mid">    
+            <div class="entry">
+            <!-- Begin Image -->
+            <img class="portrait right" src="{{ user.avatar_url }}" />
+            <!-- End Image -->
+            <!-- Begin Personal Information -->
+            <div class="self right">
+                <h1 class="name">{{ user.name }}</h1>
+                <br />
+                <ul>
+                    <li class="ad">{{ user.location }}</li>
+                    <li class="mail">{{ user.email }}</li>
+                    <li class="tel">{{ user.company }}</li>
+                    <li class="web">{{ user.blog }}</li>
+                    <li *ngIf="user.created_at">On GitHub from {{ user.created_at }}</li>
+                </ul>
+            </div>
+            <!-- End Personal Information -->
+            <!-- Begin Social -->
+            <div class="social">
+                <ul>
+                    <li>Public Repos: {{ user.public_repos }}</li>
+                    <li>Public Gists: {{ user.public_gists }}</li>
+                    <li>Followers: {{ user.followers }}</li>
+                    <li>Following: {{ user.following }}</li>
+                </ul>
+            </div>
+            <!-- End Social -->
+            </div>
+
+            <div class="entry">
+                <h2>OBJECTIVE</h2>
+                <p>{{ user.bio }}</p>
+            </div>
+
+            <div class="entry">
+                <h2>SKILLS</h2>
+                <div class="content">
+                    <h3>Languages Experience</h3>
+                    <ul class="skills">
+                        <li *ngFor="let lang of user.languages">{{ lang.name }} - <b>{{ lang.perc }}%</b></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <h3>Repos Sizes</h3>
+                    <ul class="skills">
+                        <li *ngFor="let size of user.sizes">{{ size.name }} ({{ size.size }} b) - <b>{{ size.perc }}%</b></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+            <h2>Public Repos</h2>
+            <div class="content" *ngFor="let rep of user.repos">
+                <h3>{{ rep.name }}</h3>
+                <p>{{ rep.language }}</p>
+                <p *ngIf="rep.description">"{{ rep.description }}" <br />
+                    <em>{{ rep.html_url }}</em></p>
+                <p><em>{{ rep.created_at }}</em></p>
+            </div>
+            </div>
+
+            <div class="entry">
+            <h2>Organizations</h2>
+                <ul class="works">
+                    <li *ngFor="let org of user.orgs"><img src="{{ org.avatar_url }}" alt="" /><br />{{ org.login }}</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="clear"></div>
+        <div class="paper-bottom"></div>
+        </div>
+        <!-- End Paper -->
+    </div>
+    <div class="wrapper-bottom"></div>
+    </div>
+<div id="message"><a href="#top" id="top-link">Go to Top</a></div>

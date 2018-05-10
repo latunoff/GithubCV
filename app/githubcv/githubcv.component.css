@@ -1,0 +1,36 @@
+.container_form {
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    left: calc(50% - 150px);
+    top: 150px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+.container_form a { color: white; }
+.container_form:hover, .container_form a:hover {
+    color: black;
+}
+.container_form input {
+    float: left;
+    padding: 4px;
+    width: 165px;
+    height: 20px;
+}
+.container_form button {
+    /* width: 30px; */
+    height: 30px;
+    float: right;
+    cursor: pointer;
+}
+.container_form button.gen {
+    width: 80px;
+}
+.pointer {
+    cursor: pointer;
+}
+
+.photo {
+    position: absolute;
+}

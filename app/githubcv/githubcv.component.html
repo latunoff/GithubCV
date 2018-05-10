@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="container_form" *ngIf="!user.name">
+		<button class="button" (click)="onClick()"><></button>
+		<form novalidate [formGroup]="rForm" name="login-form" (ngSubmit)="run()" class="form">
+			<div class="field">
+				<div class="control">
+					<input class="input" type="text" name="name" formControlName="name" placeholder="Input Login on github.com">
+					<button class="button gen" type="submit" [disabled]="!rForm.valid || loading">Generate</button>
+				</div>
+			</div>
+		</form>
+		<div class="error">{{ message }}</div>
+	</div>
+	<div class="container_form pointer" *ngIf="user.name" (click)="reset()" [ngStyle]="{'color': hint_text_color}">
+		Click here to show input field again<br />
+	</div>
+	<app-output-cv type="{{ myType }}" [user]="user"></app-output-cv>
+</div>
+
